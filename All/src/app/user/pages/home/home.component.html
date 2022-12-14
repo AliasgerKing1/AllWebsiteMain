@@ -355,7 +355,7 @@
                                         <li><a href="#">Settings</a></li>
                                         <li><a href="#">Terms and Conditions</a></li>
                                         <li><a href="contact.html">Contact</a></li>
-                                        <li><a href="login.html">Log Out</a></li>
+                                        <li><a (click)="_auth.logout()" style="cursor: pointer;">Log Out</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -655,9 +655,11 @@
                                 </li>
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane fade show active" id="post-status" role="tabpanel">
-                                    <textarea name="status-input" id="status-input1" class="form-control textarea"
+                              <div class="tab-pane fade show active" id="post-status" role="tabpanel">
+                                  <form [formGroup]="StatusForm">
+                                    <textarea formControlName="statusinput" id="status-input1" class="form-control textarea"
                                         placeholder="Share what are you thinking . . ." cols="30" rows="6"></textarea>
+                                    </form>
                                 </div>
                                 <div class="tab-pane fade" id="post-media" role="tabpanel">
                                     <!-- <label>Media Gallery</label>

@@ -6,9 +6,10 @@ import { ProfileService } from '../../services/profile.service';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
+  User: any;
   constructor(private _profile: ProfileService) {
     this._profile.getUserProfile().subscribe((result) => {
-      console.log(result);
+      this.User = result;
     });
   }
 

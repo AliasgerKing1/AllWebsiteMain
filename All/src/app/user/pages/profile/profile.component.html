@@ -705,10 +705,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <ul class="user-info">
+                            <ul class="user-info" *ngFor="let u of User">
                                 <li>
                                     <label>E-mail:</label>
-                                    <p>info@crumina.net</p>
+                                    <p>{{u.email}}</p>
                                 </li>
                                 <li>
                                     <label>Phone:</label>
@@ -744,9 +744,9 @@
                             <div class="user-info">
                                 <p>Hi! My name is Rebeca Powel but some people may know me asserty GamePagla! I have a
                                     Newbike channel where I stream.</p>
-                                <ul class="info-list">
+                                <ul class="info-list" *ngFor="let u of User">
                                     <li><span>Joined:</span>24/12/2020</li>
-                                    <li><span>E-mail:</span>info@gmail.com</li>
+                                    <li><span>E-mail:</span>{{u.email}}</li>
                                     <li><span>Address:</span>59 Street Neworkcity</li>
                                     <li><span>Phone:</span>+123 9856836</li>
                                     <li><span>Country:</span>USA</li>

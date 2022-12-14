@@ -3,10 +3,10 @@ Template Name: Cirkle Social Media Community HTML Template
 Template URL: http://www.radiustheme.com/demo/html/cirkle/
 Description: Social Media and Community HTML Template
 Author: RadiusTheme
-Author URL: http://www.radiustheme.com 
+Author URL: http://www.radiustheme.com
 Version: 1.0.0
 
-===================   
+===================
 CSS INDEX
 ===================
 1. Typography
@@ -46,10 +46,10 @@ CSS INDEX
 	6.5 Product
 	6.6 Search
 	6.7 User Activity
-	6.8 Widget 
+	6.8 Widget
 --------------------------------------------*/
 /*=======================================================================
-1. Typography 
+1. Typography
 =========================================================================*/
 body {
     font-family: "Nunito", sans-serif;
@@ -624,7 +624,7 @@ h6 {
     margin-top: -97px;
     padding: 185px 0 95px;
     background-color: #615dfa;
-    background-image: url("../../media/banner/hero_1.jpg");
+    background-image: url();
     background-position: top;
     background-size: cover;
     background-repeat: no-repeat;
@@ -3177,7 +3177,7 @@ nav.template-main-menu > ul > li:hover ul.mega-menu {
 }
 
 .fixed-sidebar.right .user-chat-list .chat-item .author-img:before {
-    content: url("../../media/figure/chat_round_shape2.png");
+    content: url();
     position: absolute;
     top: -5px;
     left: -5px;
@@ -3192,7 +3192,7 @@ nav.template-main-menu > ul > li:hover ul.mega-menu {
 }
 
 .fixed-sidebar.right .user-chat-list .chat-item .author-img:after {
-    content: url("../../media/figure/chat_round_shape.png");
+    content: url();
     position: absolute;
     top: -5px;
     left: -5px;
@@ -4754,7 +4754,7 @@ nav.template-main-menu > ul > li:hover ul.mega-menu {
 .community-network {
     background-color: #f6f6f6;
     padding: 125px 0;
-    background-image: url("../../media/figure/map_1.png");
+    background-image: url();
     background-repeat: no-repeat;
     background-position: bottom left;
     position: relative;
@@ -5473,7 +5473,7 @@ nav.template-main-menu > ul > li:hover ul.mega-menu {
 /*------------------- 5.9 Testimonial -------------------*/
 .testimonial-carousel {
     padding: 120px 0 100px;
-    background-image: url("../../media/testimonial/bg_1.jpg");
+    background-image: url();
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
@@ -5926,7 +5926,7 @@ nav.template-main-menu > ul > li:hover ul.mega-menu {
 
 .login-page-wrap .content-wrap {
     height: 100%;
-    background-image: url("../../media/banner/hero_1.jpg");
+    background-image: url();
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -6208,7 +6208,7 @@ nav.template-main-menu > ul > li:hover ul.mega-menu {
 
 .login-page-wrap .tab-content .form-group {
       /* input::-webkit-calendar-picker-indicator {
-			 	
+
 			 	&:before {
 			 		color: red;
 			 	}
@@ -6481,7 +6481,7 @@ nav.template-main-menu > ul > li:hover ul.mega-menu {
 }
 
 .banner-user {
-    background-image: url("../../media/banner/banner_user.jpg");
+    background-image: url();
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 8px;
@@ -6654,7 +6654,7 @@ nav.template-main-menu > ul > li:hover ul.mega-menu {
 }
 
 .banner-forum {
-    background-image: url("../../media/banner/banner_forum.jpg");
+    background-image: url();
 }
 
 .banner-forum .media .media-body .item-title:before {
@@ -6666,7 +6666,7 @@ nav.template-main-menu > ul > li:hover ul.mega-menu {
 }
 
 .banner-user-group {
-    background-image: url("../../media/banner/banner_group.jpg");
+    background-image: url();
 }
 
 .banner-user-group .media .media-body .item-title:before {
@@ -7405,7 +7405,7 @@ nav.template-main-menu > ul > li:hover ul.mega-menu {
 }
 
 .post-view .post-header .media .user-img:after {
-    content: url("../../media/figure/chat_round_shape.png");
+    content: url();
     position: absolute;
     top: 0;
     left: 0;
@@ -8509,7 +8509,7 @@ nav.template-main-menu > ul > li:hover ul.mega-menu {
 
 .product-breadcrumb {
     padding: 130px 0;
-    background-image: url("../../media/figure/product_breadcrum.jpg");
+    background-image: url();
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -10960,7 +10960,7 @@ nav.template-main-menu > ul > li:hover ul.mega-menu {
 }
 
 .widget-author .profile-img a:before {
-    content: url("../../media/figure/chat_round_shape5.png");
+    content: url();
     position: absolute;
     top: -8px;
     left: -8px;
@@ -11363,7 +11363,7 @@ nav.template-main-menu > ul > li:hover ul.mega-menu {
 }
 
 .widget-banner:after {
-    content: url("../../media/figure/square_shape.png");
+    content: url();
     position: absolute;
     top: 0;
     left: 0;

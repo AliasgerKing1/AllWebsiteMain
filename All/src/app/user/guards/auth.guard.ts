@@ -17,5 +17,5 @@ constructor(private _router : Router, private _auth : AuthService) {
       return false;
     }
   }
-  
+
 }
