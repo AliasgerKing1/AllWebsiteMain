@@ -38,12 +38,12 @@
                                 </div>
                                 <form [formGroup]="LoginForm">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" formControlName="loginEmail" placeholder="Your E-mail"
+                                        <input type="text" class="form-control" formControlName="email" placeholder="Your E-mail"
                                             [ngClass]="{'is-invalid': UserForm.controls['email'].errors && CheckForm}">
                                         <small class="text-danger" *ngIf="UserForm.controls['email'].errors && CheckForm">Insert Email</small>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" formControlName="loginPassword" placeholder="Password"
+                                        <input type="password" class="form-control" formControlName="password" placeholder="Password"
                                             [ngClass]="{'is-invalid': UserForm.controls['password'].errors && CheckForm}">
                                         <small class="text-danger" *ngIf="UserForm.controls['password'].errors && CheckForm">Insert Password</small>
                                     </div>
