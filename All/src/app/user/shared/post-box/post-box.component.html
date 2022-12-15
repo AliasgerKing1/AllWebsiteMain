@@ -1,0 +1,172 @@
+<div class="block-box post-view" *ngFor="let p of allPost">
+  <div class="post-header">
+    <div class="media">
+      <div class="user-img">
+        <img src="./assets/media/figure/chat_10.jpg" alt="Aahat" />
+      </div>
+      <div class="media-body">
+        <div class="user-title">
+          <a href="user-timeline.html">Aahat Akter</a>
+          <i class="icofont-check"></i> posted in the group
+          <a href="#">Tourist Guide</a>
+        </div>
+        <ul class="entry-meta">
+          <li class="meta-privacy"><i class="icofont-world"></i> Public</li>
+          <li class="meta-time">2 mins ago</li>
+        </ul>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button
+        class="dropdown-toggle"
+        type="button"
+        data-toggle="dropdown"
+        aria-expanded="false"
+      >
+        ...
+      </button>
+      <div class="dropdown-menu dropdown-menu-right">
+        <a class="dropdown-item" href="#">Close</a>
+        <a class="dropdown-item" href="#">Edit</a>
+        <button
+          class="dropdown-item"
+          data-bs-toggle="modal"
+          data-bs-target="#delModal"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="post-body">
+    <div class="post-img">
+      <p class="post-para text-center">
+        {{ p.statusinput }}
+        <i class="icofont-wink-smile"></i>
+      </p>
+      <!-- <img src="./assets/media/figure/post_1.jpg" alt="Post" /> -->
+    </div>
+    <div class="post-meta-wrap">
+      <div class="post-meta">
+        <div class="post-reaction">
+          <div class="reaction-icon">
+            <img src="./assets/media/figure/reaction_1.png" alt="icon" />
+            <img src="./assets/media/figure/reaction_2.png" alt="icon" />
+          </div>
+          <div class="meta-text">15</div>
+        </div>
+      </div>
+      <div class="post-meta">
+        <div class="meta-text">0 Comments</div>
+        <div class="meta-text">0 Share</div>
+      </div>
+    </div>
+  </div>
+  <div class="post-footer">
+    <ul>
+      <li class="post-react">
+        <a href="#"><i class="icofont-thumbs-up"></i>React!</a>
+        <ul class="react-list">
+          <li>
+            <a href="#"
+              ><img src="./assets/media/figure/reaction_1.png" alt="Like"
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="./assets/media/figure/reaction_2.png" alt="Like"
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="./assets/media/figure/reaction_4.png" alt="Like"
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="./assets/media/figure/reaction_2.png" alt="Like"
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="./assets/media/figure/reaction_7.png" alt="Like"
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="./assets/media/figure/reaction_6.png" alt="Like"
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="./assets/media/figure/reaction_5.png" alt="Like"
+            /></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#"><i class="icofont-comment"></i>Comment</a>
+      </li>
+      <li class="post-share">
+        <a href="javascript:void(0);" class="share-btn"
+          ><i class="icofont-share"></i>Share</a
+        >
+        <ul class="share-list">
+          <li>
+            <a href="#" class="color-fb"><i class="icofont-facebook"></i></a>
+          </li>
+          <li>
+            <a href="#" class="color-messenger"
+              ><i class="icofont-facebook-messenger"></i
+            ></a>
+          </li>
+          <li>
+            <a href="#" class="color-instagram"
+              ><i class="icofont-instagram"></i
+            ></a>
+          </li>
+          <li>
+            <a href="#" class="color-whatsapp"
+              ><i class="icofont-brand-whatsapp"></i
+            ></a>
+          </li>
+          <li>
+            <a href="#" class="color-twitter"
+              ><i class="icofont-twitter"></i
+            ></a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="delModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">...</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
