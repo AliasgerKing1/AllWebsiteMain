@@ -86,6 +86,35 @@
                                         <input type="password" formControlName="password" class="form-control"
                                             placeholder="Type Password" [ngClass]="{'is-invalid': UserForm.controls['password'].errors && CheckForm}">
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <select class="select2 form-control Select" formControlName="gender" data-placeholder="Select Gender"
+                                                    [ngClass]="{'is-invalid': UserForm.controls['gender'].errors && CheckForm}">
+                                                    <option value="" class="select">Day</option>
+                                                    <option *ngFor="let d of day">{{d}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 offset-md-1">
+                                            <div class="form-group">
+                                                <select class="select2 form-control Select" formControlName="gender" data-placeholder="Select Gender"
+                                                    [ngClass]="{'is-invalid': UserForm.controls['gender'].errors && CheckForm}">
+                                                    <option value="" class="select">Month</option>
+                                                    <option *ngFor="let m of month">{{m}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 offset-md-1">
+                                            <div class="form-group">
+                                                <select class="select2 form-control Select" formControlName="gender" data-placeholder="Select Gender"
+                                                    [ngClass]="{'is-invalid': UserForm.controls['gender'].errors && CheckForm}">
+                                                    <option value="" class="select">Year</option>
+                                                    <option *ngFor="let y of year">{{y}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <input type="password" formControlName="re_password" class="form-control" placeholder="Type Re_Password" [ngClass]="{'is-invalid': UserForm.controls['re_password'].errors && CheckForm}">
                                         </div>
@@ -94,14 +123,15 @@
                                             placeholder="Your Birth Day" [ngClass]="{'is-invalid': UserForm.controls['date'].errors && CheckForm}">
                                     </div>
                                     <div class="form-group">
-                                        <select class="select2" formControlName="gender"
+                                        <select class="select2 form-control" formControlName="gender"
                                             data-placeholder="Select Gender" [ngClass]="{'is-invalid': UserForm.controls['gender'].errors && CheckForm}">
-                                            <option value=""></option>
+                                            <option value="">Gender</option>
                                             <option value="male">Male</option>
                                             <option value="male">Female</option>
                                             <option value="transgender">Transgender</option>
                                         </select>
                                     </div>
+                                        
                                     <div class="form-group">
                                         <div class="form-check mb-3">
                                             <input type="checkbox" class="form-check-input" id="validationFormCheck1">

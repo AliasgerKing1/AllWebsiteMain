@@ -9,6 +9,7 @@ export class ProfileComponent implements OnInit {
   user: any;
   constructor(private _profile: ProfileService) {
     this._profile.getUserProfile().subscribe((result: any) => {
+      console.log(result);
       this.user = result;
     });
   }
