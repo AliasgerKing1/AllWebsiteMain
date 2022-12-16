@@ -9,6 +9,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { PostBoxComponent } from './shared/post-box/post-box.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { RegisterComponent } from './pages/register/register.component';
     HomeComponent,
     ProfileComponent,
     RegisterComponent,
+    PostBoxComponent,
   ],
   imports: [
     CommonModule,
