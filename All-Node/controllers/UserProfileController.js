@@ -7,6 +7,7 @@ routes.get("/", (req, res)=> {
         let token = JSON.parse(req.headers.authorization);
         let obj = jwt.decode(token, "Aliasger web");
         User.find({ _id: obj.id }, (error, result) => {
+          console.log(result);
           res.send(result[0]);
         });
     }

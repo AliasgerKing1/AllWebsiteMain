@@ -48,7 +48,6 @@ export class LoginComponent implements OnInit {
         this.LCheckForm = true;
         }
         this._auth.doLogin(this.LoginForm.value).subscribe(result=> {
-          console.log(result);
           if(result.success) {
             localStorage.setItem('token', result.token);
             this._router.navigate(['/home']);
