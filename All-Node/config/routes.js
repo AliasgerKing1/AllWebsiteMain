@@ -7,6 +7,7 @@ routes.use("/api/post", require("../controllers/social_media/PostController"));
 
 
 //job portal
-routes.use("/api/employer",require("../controllers/job/EmployerController"));
+routes.use("/api/recruiter/job/post", require("../controllers/job/PostJobController"));
+
 
 module.exports = routes;

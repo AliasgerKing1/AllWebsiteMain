@@ -1,0 +1,157 @@
+<!-- 
+    <div class="loader-content">
+        <div class="d-table">
+            <div class="d-table-cell">
+                <div class="sk-circle">
+                    <div class="sk-circle1 sk-child"></div>
+                    <div class="sk-circle2 sk-child"></div>
+                    <div class="sk-circle3 sk-child"></div>
+                    <div class="sk-circle4 sk-child"></div>
+                    <div class="sk-circle5 sk-child"></div>
+                    <div class="sk-circle6 sk-child"></div>
+                    <div class="sk-circle7 sk-child"></div>
+                    <div class="sk-circle8 sk-child"></div>
+                    <div class="sk-circle9 sk-child"></div>
+                    <div class="sk-circle10 sk-child"></div>
+                    <div class="sk-circle11 sk-child"></div>
+                    <div class="sk-circle12 sk-child"></div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+
+
+<section class="page-title title-bg3">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <h2>Post a Job</h2>
+            <ul>
+                <li>
+                    <a routerLink="/recruiter">Home</a>
+                </li>
+                <li>Post a Job</li>
+            </ul>
+        </div>
+    </div>
+    <div class="lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+</section>
+
+
+<div class="job-post ptb-100">
+    <div class="container">
+        <form class="job-post-from" [formGroup]="jobPostForm">
+            <h2>Fill Up Your Job information</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Job Title</label>
+                        <input type="text" formcontrolName="title" id="exampleInput1" class="form-control"
+                            placeholder="Job Title or Keyword"
+                            [ngClass]="{'is-invalid' : checkForm && jobPostForm.controls['title'].errors }" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Job Category</label>
+                        <select class="category form-control" formcontrolName="category"
+                            [ngClass]="{'is-invalid' : checkForm && jobPostForm.controls['category'].errors }">
+                            <option data-display="Category">Category</option>
+                            <option value="1">Web Development</option>
+                            <option value="2">Graphics Design</option>
+                            <option value="4">Data Entry</option>
+                            <option value="5">Visual Editor</option>
+                            <option value="6">Office Assistant</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Company Name</label>
+                        <input type="text" formcontrolName="comp_name" id="exampleInput2" class="form-control"
+                            placeholder="Company Name"
+                            [ngClass]="{'is-invalid' : checkForm && jobPostForm.controls['comp_name'].errors }" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Company Email</label>
+                        <input type="email" formcontrolName="comp_email" id="exampleInput3" class="form-control"
+                            placeholder="e.g. hello@company.com"
+                            [ngClass]="{'is-invalid' : checkForm && jobPostForm.controls['comp_email'].errors }" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Company Website (Optional)</label>
+                        <input type="text" formcontrolName="comp_website" id="exampleInput4" class="form-control"
+                            placeholder="e.g www.companyname.com"
+                            [ngClass]="{'is-invalid' : checkForm && jobPostForm.controls['comp_website'].errors }" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Location</label>
+                        <input type="text" formcontrolName="location" class="form-control" id="exampleInput5"
+                            placeholder="e.g. London"
+                            [ngClass]="{'is-invalid' : checkForm && jobPostForm.controls['location'].errors }" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Job Type</label>
+                        <select class="category form-control" formcontrolName="type"
+                            [ngClass]="{'is-invalid' : checkForm && jobPostForm.controls['type'].errors }">
+                            <option data-display="Job Type">Job Type</option>
+                            <option value="1">Full Time</option>
+                            <option value="2">Part Time</option>
+                            <option value="4">Freelancer</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Job Tags</label>
+                        <input type="text" formcontrolName="tags" class="form-control" id="exampleInput6"
+                            placeholder="e.g. web design, graphics design, video editing"
+                            [ngClass]="{'is-invalid' : checkForm && jobPostForm.controls['tags'].errors }" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Salary (Optional)</label>
+                        <input type="number" formcontrolName="salary" class="form-control" id="exampleInput7"
+                            placeholder="e.g. $20,000"
+                            [ngClass]="{'is-invalid' : checkForm && jobPostForm.controls['salary'].errors }" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Experience</label>
+                        <input type="text" formcontrolName="experience" class="form-control" id="exampleInput8"
+                            placeholder="e.g. 1 year"
+                            [ngClass]="{'is-invalid' : checkForm && jobPostForm.controls['experience'].errors }" />
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Job Description</label>
+                        <textarea class="form-control description-area" id="exampleFormControlTextarea1" rows="6"
+                            placeholder="Job Description" formcontrolName="description" class="form-control"
+                            [ngClass]="{'is-invalid' : checkForm && jobPostForm.controls['description'].errors }"></textarea>
+                    </div>
+                </div>
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="post-btn" click="submit()">
+                        Post A Job
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

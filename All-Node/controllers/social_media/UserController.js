@@ -1,5 +1,5 @@
 const routes = require("express").Router();
-const User = require("../models/User");
+const User = require("../../models/social_media/User");
 const sha1 = require("sha1");
 const jwt = require("jsonwebtoken");
 

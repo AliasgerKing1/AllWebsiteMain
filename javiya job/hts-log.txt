@@ -1,0 +1,19 @@
+HTTrack3.49-2+htsswf+htsjava launched on Fri, 16 Dec 2022 09:39:10 at https://templates.hibootstrap.com/jovie/default/index.html +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://templates.hibootstrap.com/jovie/default/index.html -O1 "C:\My Web Sites\javiya job" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+09:40:12	Error: 	"Not Found" (404) at link https://templates.hibootstrap.com/jovie/default/blog-two (from https://templates.hibootstrap.com/jovie/default/index.html)
+09:40:15	Error: 	"Not Found" (404) at link https://templates.hibootstrap.com/jovie/default/privacy.html (from https://templates.hibootstrap.com/jovie/default/index.html)
+09:40:15	Error: 	"Not Found" (404) at link https://templates.hibootstrap.com/jovie/default/assets/css/owl.video.play.png (from https://templates.hibootstrap.com/jovie/default/assets/css/owl.carousel.min.css)
+09:40:16	Error: 	"Not Found" (404) at link https://templates.hibootstrap.com/jovie/default/assets/fonts/flaticon/Flaticon.ttf (from https://templates.hibootstrap.com/jovie/default/assets/fonts/flaticon/flaticon.css)
+09:40:16	Error: 	"Not Found" (404) at link https://templates.hibootstrap.com/jovie/default/assets/fonts/flaticon/Flaticon.svg (from https://templates.hibootstrap.com/jovie/default/assets/fonts/flaticon/flaticon.css)
+09:40:16	Error: 	"Not Found" (404) at link https://templates.hibootstrap.com/jovie/default/signup.html (from https://templates.hibootstrap.com/jovie/default/sign-in.html)
+09:40:16	Error: 	"Not Found" (404) at link https://templates.hibootstrap.com/jovie/default/signin.html (from https://templates.hibootstrap.com/jovie/default/sign-up.html)
+09:40:16	Error: 	"Not Found" (404) at link https://templates.hibootstrap.com/jovie/default/terms.html (from https://templates.hibootstrap.com/jovie/default/terms-condition.html)
+
+HTTrack Website Copier/3.49-2 mirror complete in 1 minutes 6 seconds : 168 links scanned, 159 files written (10650800 bytes overall) [8897650 bytes received at 134812 bytes/sec], 3042038 bytes transferred using HTTP compression in 67 files, ratio 37%, 56.0 requests per connection
+(8 errors, 0 warnings, 0 messages)
