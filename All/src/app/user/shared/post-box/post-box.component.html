@@ -15,7 +15,7 @@
           <li class="meta-time">2 mins ago</li>
         </ul>
       </div>
-    </div>
+      </div>
     <div class="dropdown">
       <button
         class="dropdown-toggle"
@@ -26,12 +26,13 @@
         ...
       </button>
       <div class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="#">Close</a>
-        <a class="dropdown-item" href="#">Edit</a>
+        <a class="dropdown-item" routerLink="">Close</a>
+        <a class="dropdown-item" style="cursor: pointer;" (click)="edit(p)">Edit</a>
         <button
           class="dropdown-item"
-          data-bs-toggle="modal"
-          data-bs-target="#delModal"
+          data-toggle="modal"
+          data-target="#delModal"
+          (click)="askDelete(p)"
         >
           Delete
         </button>
@@ -142,31 +143,24 @@
 </div>
 
 <!-- Modal -->
-<div
-  class="modal fade"
-  id="delModal"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
+<div class="modal fade" id="delModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">...</div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
-        </button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
+      <div class="modal-content">
+        <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Delete {{type}}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              </div>
+          <div class="modal-body">
+            <p> are you sure you want to delete this <b>{{type}}</b></p>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-primary" #closeBtn data-dismiss="modal">no</button>
+              <button type="button" class="btn btn-danger" (click)="confDelete(closeBtn)" (click)="reload()">Yes</button>
+              </div>
+              </div>
   </div>
 </div>
+
+<!-- <app-delmodal [type]="'Post'" (delEvent)="confDelete($event)"></app-delmodal> -->

@@ -7,7 +7,7 @@ routes.post("/", (req, res)=> {
     })
 })
 routes.get("/", (req, res)=> {
-   Post.find({}, (error, result)=> {
+   Post.find({}).limit(6).exec((error, result)=> {
         res.send(result);
     })
 })

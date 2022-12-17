@@ -1,0 +1,50 @@
+<div class="block-box post-input-tab">
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item" role="presentation" data-toggle="tooltip" data-placement="top" title="STATUS">
+            <a class="nav-link active" data-toggle="tab" href="#post-status" role="tab" aria-selected="true"><i
+                    class="icofont-copy"></i>Status</a>
+        </li>
+        <li class="nav-item" role="presentation" data-toggle="tooltip" data-placement="top" title="MEDIA">
+            <a class="nav-link" data-toggle="tab" href="#post-media" role="tab" aria-selected="false"><i
+                    class="icofont-image"></i>Photo/ Video Album</a>
+        </li>
+        <li class="nav-item" role="presentation" data-toggle="tooltip" data-placement="top" title="BLOG">
+            <a class="nav-link" data-toggle="tab" href="#post-blog" role="tab" aria-selected="false"><i
+                    class="icofont-list"></i>Blog</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="post-status" role="tabpanel">
+            <form [formGroup]="statusForm">
+                <textarea formControlName="statusinput" id="status-input1" class="form-control textarea"
+                    placeholder="Share what are you thinking . . ." cols="30" rows="6" [ngClass]="{
+                        'is-invalid':
+                          statusForm.controls['statusinput'].errors && checkForm
+                      }"></textarea>
+                <small class="text-danger" *ngIf="
+                        statusForm.controls['statusinput'].errors && checkForm
+                      ">Insert Your Post</small>
+            </form>
+        </div>
+        <div class="tab-pane fade" id="post-media" role="tabpanel">
+            <!-- <label>Media Gallery</label>
+        	<a href="#" class="media-insert"><i class="icofont-upload-alt"></i>Upload</a> -->
+            <textarea name="status-input" id="status-input2" class="form-control textarea"
+                placeholder="Share what are you thinking . . ." cols="30" rows="6"></textarea>
+        </div>
+        <div class="tab-pane fade" id="post-blog" role="tabpanel">
+            <textarea name="status-input" id="status-input3" class="form-control textarea"
+                placeholder="Share what are you thinking . . ." cols="30" rows="6"></textarea>
+        </div>
+    </div>
+    <div class="post-footer">
+        <div class="insert-btn">
+            <a href="#"><i class="icofont-photobucket"></i></a>
+            <a href="#"><i class="icofont-tags"></i></a>
+            <a href="#"><i class="icofont-location-pin"></i></a>
+        </div>
+        <div class="submit-btn">
+            <a type="submit" (click)="submit()">Post Submit</a>
+        </div>
+    </div>
+</div>

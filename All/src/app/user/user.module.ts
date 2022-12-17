@@ -10,6 +10,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { PostBoxComponent } from './shared/post-box/post-box.component';
+import { DelmodalComponent } from './shared/delmodal/delmodal.component';
+import { EditPostComponent } from './pages/edit-post/edit-post.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { PostBoxComponent } from './shared/post-box/post-box.component';
     ProfileComponent,
     RegisterComponent,
     PostBoxComponent,
+    DelmodalComponent,
+    EditPostComponent,
   ],
   imports: [
     CommonModule,
