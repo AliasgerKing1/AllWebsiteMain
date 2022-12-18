@@ -14,6 +14,9 @@ export class HomeComponent implements OnInit {
   checkForm = false;
   user: any;
   id:any;
+  postTime:any;
+  postDate = new Date();
+url = "./assets/media/figure/chat_5.jpg";
   constructor(
     public _auth: AuthService,
     private _fb: FormBuilder,
@@ -26,6 +29,7 @@ export class HomeComponent implements OnInit {
     this.statusForm = this._fb.group({
       // _id : null,
       statusinput: ['', Validators.required],
+      time : this.postDate,
       // __v : null
     });
 
@@ -40,6 +44,7 @@ export class HomeComponent implements OnInit {
       this.user = result;
     });
   }
+
 
   submit() {
     if (this.statusForm.invalid) {

@@ -767,10 +767,17 @@
         <!-- Banner Area Start -->
         <div class="banner-user">
           <div class="banner-content">
+            <form [formGroup]="uploadForm">
             <div class="media">
-              <div class="item-img">
-                <img src="/assets/media/banner/user_1.jpg" alt="User" />
+              <div class="item-img" style="position: relative;">
+                <img [src]="url" style=" display: block;" alt="User" width="120px" height="120px" />
+                <span class="position-absolute top-0 start-100 translate-middle p-2 rounded-circle">
+                  <span class="visually-hidden"><label><i class="icofont-pencil pencil-upload"> <input type="file"
+                          style="display: none;" (change)="onSelectFile($event)" /></i></label></span>
+                </span>
               </div>
+              <input type="file" style="display: none;" (change)="onSelectFile($event)" #upload />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <div class="media-body">
                 <h3 class="item-title">{{ user.fname }} {{ user.lname }}</h3>
                 <div class="item-subtitle">United State of America</div>
@@ -808,6 +815,7 @@
                 </ul>
               </div>
             </div>
+          </form>
           </div>
         </div>
         <div class="block-box user-top-header">

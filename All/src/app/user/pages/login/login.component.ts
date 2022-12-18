@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       re_password: ['', Validators.required],
+      contact: ['', Validators.required],
       gender: ['', Validators.required],
       day: ['', Validators.required],
       month: ['', Validators.required],
@@ -41,7 +42,7 @@ export class LoginComponent implements OnInit {
       return;
     }
     this._user.AddUser(this.UserForm.value).subscribe((result) => {
-      this._router.navigate(["/home"]);
+      window.location.reload();
     });
   }
 
