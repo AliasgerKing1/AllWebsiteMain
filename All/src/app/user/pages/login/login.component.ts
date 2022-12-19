@@ -1,8 +1,10 @@
+import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { AuthService } from '../../services/auth.service';
+import { ContCodeService } from '../../services/cont-code.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,14 +15,22 @@ export class LoginComponent implements OnInit {
   LoginForm: FormGroup;
   CheckForm = false;
   LCheckForm = false;
-  errMsg : any;
-  constructor(private _fb: FormBuilder, private _user: UserService, private _router : Router,private _auth : AuthService) {
-
+  errMsg: any;
+  allCode: any = [];
+  joinedDate: any = new Date();
+  userJoinedDate: any;
+  constructor(
+    private _fb: FormBuilder,
+    private _user: UserService,
+    private _router: Router,
+    private _auth: AuthService,
+    private _code: ContCodeService
+  ) {
     //Login Form
     this.LoginForm = this._fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
-    })
+    });
 
     //Signup form
     this.UserForm = this._fb.group({
@@ -33,10 +43,17 @@ export class LoginComponent implements OnInit {
       gender: ['', Validators.required],
       day: ['', Validators.required],
       month: ['', Validators.required],
-     year: ['', Validators.required],
+      year: ['', Validators.required],
+      code: ['', Validators.required],
+      joined_date: this.userJoinedDate,
+    });
+
+    this._code.getCountryCode().subscribe((result) => {
+      this.allCode = result;
     });
   }
-  submit() {
+  submit(joinedDate: any) {
+    this.userJoinedDate = joinedDate.innerHTML;
     if (this.UserForm.invalid) {
       this.CheckForm = true;
       return;
@@ -47,32 +64,48 @@ export class LoginComponent implements OnInit {
   }
 
   Lsubmit() {
-        if(this.LoginForm.invalid) {
-        this.LCheckForm = true;
+    if (this.LoginForm.invalid) {
+      this.LCheckForm = true;
+    }
+    this._auth.doLogin(this.LoginForm.value).subscribe((result) => {
+      if (result.success) {
+        localStorage.setItem('token', result.token);
+        this._router.navigate(['/home']);
+      } else {
+        if (result.errType == 1) {
+          this.errMsg = 'This email/username is not registered !';
         }
-        this._auth.doLogin(this.LoginForm.value).subscribe(result=> {
-          if(result.success) {
-            localStorage.setItem('token', result.token);
-            this._router.navigate(['/home']);
-          }else {
-            if(result.errType == 1) {
-                this.errMsg = "This email/username is not registered !"
-            }
-            if(result.errType == 2) {
-                this.errMsg = "This password is incorrect !"
-            }
-          }
-        })
+        if (result.errType == 2) {
+          this.errMsg = 'This password is incorrect !';
         }
+      }
+    });
+  }
 
-      day:any = [
-        1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31
-      ];
-      month:any = [
-          "January","Feburary","March","April","May","June","July","Augest","September","october", "November", "December"
-      ];
-      year:any = [
-        2023,2022,2021,2020,2019,2018,2017,2016,2015,2014,2013,2012,2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,2000,1999,1998,1997,1996,1995,1994,1993,1992,1991,1990,1989,1988,1987,1986,1985,1984,1983,1982,1981,1980,1979,1978,1977,1976,1975,1974,1973,1972,1971,1970
-      ]
+  day: any = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+    22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
+  ];
+  month: any = [
+    'January',
+    'Feburary',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'Augest',
+    'September',
+    'october',
+    'November',
+    'December',
+  ];
+  year: any = [
+    2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012,
+    2011, 2010, 2009, 2008, 2007, 2006, 2005, 2004, 2003, 2002, 2001, 2000,
+    1999, 1998, 1997, 1996, 1995, 1994, 1993, 1992, 1991, 1990, 1989, 1988,
+    1987, 1986, 1985, 1984, 1983, 1982, 1981, 1980, 1979, 1978, 1977, 1976,
+    1975, 1974, 1973, 1972, 1971, 1970,
+  ];
   ngOnInit(): void {}
 }

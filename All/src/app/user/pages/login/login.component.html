@@ -90,9 +90,22 @@
                                         <input type="password" formControlName="re_password" class="form-control" placeholder="Type Re_Password"
                                             [ngClass]="{'is-invalid': UserForm.controls['re_password'].errors && CheckForm}">
                                     </div>
-                                    <div class="form-group">
-                                        <input type="text" formControlName="contact" class="form-control" placeholder="Type Contact_Number"
+                                    <div class="row">
+                                      <div class="col-md-3">
+                                        <div class="form-group">
+                                            <select class="select2 form-control Select" formControlName="code" data-placeholder="Select Gender"
+                                                [ngClass]="{'is-invalid': UserForm.controls['code'].errors && CheckForm}">
+
+                                                <option *ngFor="let c of allCode">{{c.dial_code}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9">
+                                      <div class="form-group">
+                                        <input type="text" formControlName="contact"  style="margin-top: -12px !important;" class="form-control" placeholder="Type Contact_Number"
                                             [ngClass]="{'is-invalid': UserForm.controls['contact'].errors && CheckForm}">
+                                    </div>
+                                    </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-3">
@@ -135,7 +148,7 @@
                                             <option value="transgender">Transgender</option>
                                         </select>
                                     </div>
-                                        
+
                                     <div class="form-group">
                                         <div class="form-check mb-3">
                                             <input type="checkbox" class="form-check-input" id="validationFormCheck1">
@@ -144,7 +157,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input type="submit" (click)="submit()" class="submit-btn"
+                                        <input type="submit" (click)="submit(joiningDate)" class="submit-btn"
                                             value="Complete Registration">
                                     </div>
                                 </form>
@@ -178,3 +191,7 @@
         </div>
     </div>
 </div>
+
+
+
+<h1 #joiningDate>{{joinedDate | date : "d MMMM yyyy"}}</h1>
