@@ -71,61 +71,59 @@
       <li class="post-react">
         <a style="cursor: pointer"><i class="icofont-thumbs-up"></i>React!</a>
         <ul class="react-list">
-          <li *ngFor="let il of imgLoop">
-            <a style="cursor: pointer" (click)="reacted(p)"
+          <form [formGroup]="likeForm">
+            <li>
+              <a style="cursor: pointer" (click)="value1(p)" (click)="reacted(p)"
               ><img
-                src="./assets/media/figure/reaction_{{ il }}.png"
+                src="./assets/media/figure/reaction_1.png"
                 alt="Like"
             /></a>
           </li>
-          <!-- <li>
-            <a style="cursor: pointer" (click)="reacted()"
+          <li>
+            <a style="cursor: pointer" (click)="value2(p)" (click)="reacted(p)"
               ><img
                 src="./assets/media/figure/reaction_2.png"
                 alt="Like"
-              /><span>2</span></a
-            >
+              /></a>
           </li>
           <li>
-            <a style="cursor: pointer" (click)="reacted()"
+              <a style="cursor: pointer" (click)="value3(p)" (click)="reacted(p)"
               ><img
                 src="./assets/media/figure/reaction_4.png"
                 alt="Like"
-              /><span>3</span></a
-            >
+              /></a>
+            
           </li>
           <li>
-            <a style="cursor: pointer" (click)="reacted()"
+              <a style="cursor: pointer" (click)="value4(p)" (click)="reacted(p)"
               ><img
-                src="./assets/media/figure/reaction_2.png"
+                src="./assets/media/figure/reaction_3.png"
                 alt="Like"
-              /><span>4</span></a
-            >
+              /></a>
           </li>
           <li>
-            <a style="cursor: pointer" (click)="reacted()"
+              <a style="cursor: pointer" (click)="value5(p)" (click)="reacted(p)"
               ><img
                 src="./assets/media/figure/reaction_7.png"
                 alt="Like"
-              /><span>5</span></a
+              /></a
             >
           </li>
           <li>
-            <a style="cursor: pointer" (click)="reacted()"
+              <a style="cursor: pointer" (click)="value6(p)" (click)="reacted(p)"
               ><img
                 src="./assets/media/figure/reaction_6.png"
                 alt="Like"
-              /><span>6</span></a
-            >
+              /></a>
           </li>
           <li>
-            <a style="cursor: pointer" (click)="reacted()"
+              <a style="cursor: pointer" (click)="value7(p)" (click)="reacted(p)"
               ><img
                 src="./assets/media/figure/reaction_5.png"
                 alt="Like"
-              /><span>7</span></a
-            >
-          </li> -->
+              /></a>
+          </li>
+        </form>
         </ul>
       </li>
       <li>

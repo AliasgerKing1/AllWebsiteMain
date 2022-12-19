@@ -95,7 +95,6 @@
                                         <div class="form-group">
                                             <select class="select2 form-control Select" formControlName="code" data-placeholder="Select Gender"
                                                 [ngClass]="{'is-invalid': UserForm.controls['code'].errors && CheckForm}">
-
                                                 <option *ngFor="let c of allCode">{{c.dial_code}}</option>
                                             </select>
                                         </div>
@@ -157,7 +156,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input type="submit" (click)="submit(joiningDate)" class="submit-btn"
+                                        <input type="submit" (click)="submit()" class="submit-btn"
                                             value="Complete Registration">
                                     </div>
                                 </form>
@@ -194,4 +193,4 @@
 
 
 
-<h1 #joiningDate>{{joinedDate | date : "d MMMM yyyy"}}</h1>
+<!-- <h1 #joiningDate>{{joinedDate | date : "d MMMM yyyy"}}</h1> -->

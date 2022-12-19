@@ -45,15 +45,15 @@ export class LoginComponent implements OnInit {
       month: ['', Validators.required],
       year: ['', Validators.required],
       code: ['', Validators.required],
-      joined_date: this.userJoinedDate,
+      joined_date: new Date(),
     });
 
     this._code.getCountryCode().subscribe((result) => {
       this.allCode = result;
     });
   }
-  submit(joinedDate: any) {
-    this.userJoinedDate = joinedDate.innerHTML;
+  submit() {
+    // this.userJoinedDate = parse(joinedDate.innerHTML);
     if (this.UserForm.invalid) {
       this.CheckForm = true;
       return;

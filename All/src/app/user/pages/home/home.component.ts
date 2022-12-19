@@ -24,24 +24,23 @@ export class HomeComponent implements OnInit {
     private _fb: FormBuilder,
     private _post: PostService,
     private _router: Router,
-    private _profile: ProfileService // private _actroute : ActivatedRoute
+    private _profile: ProfileService ,
+    private _actroute : ActivatedRoute
   ) {
-    // this.id = this._actroute.snapshot.paramMap.get("id");
+    this.id = this._actroute.snapshot.paramMap.get("id");
     this.statusForm = this._fb.group({
-      // _id : null,
+      _id : null,
       statusinput: ['', Validators.required],
       time: this.postDate,
-      // reacted : ;
-      // reactedNum: ;
-      // __v : null
+      __v : null
     });
 
-    // if(this.id) {
-    //   this._post.getPostById(this.id).subscribe(result=> {
-    //     console.log(result)
-    //     this.statusForm.setValue(result);
-    //   })
-    // }
+    if(this.id) {
+      this._post.getPostById(this.id).subscribe(result=> {
+        console.log(result)
+        this.statusForm.setValue(result);
+      })
+    }
 
     this._profile.getUserProfile().subscribe((result: any) => {
       this.user = result;
@@ -53,14 +52,14 @@ export class HomeComponent implements OnInit {
       this.checkForm = true;
       return;
     }
-    // if(this.id) {
-    //   this._post.updatePost(this.id, this.statusForm.value).subscribe(result=> {
-    //     this._router.navigate(['/home']);
-    //   })
-    // }else {
+    if(this.id) {
+      this._post.updatePost(this.id, this.statusForm.value).subscribe(result=> {
+        this._router.navigate(['/home']);
+      })
+    }else {
     this._post.addPost(this.statusForm.value).subscribe((result) => {});
     window.location.reload();
-    // }
+    }
   }
 
   likeRecieve(obj: any) {
@@ -68,8 +67,8 @@ export class HomeComponent implements OnInit {
     console.log(this.like);
   }
   likePostIdRecieve(obj: any) {
-    this.likeId = obj;
-    console.log(this.like);
+    this.likeId = obj._id;
+    console.log(obj._id);
   }
 
   ngOnInit(): void {}

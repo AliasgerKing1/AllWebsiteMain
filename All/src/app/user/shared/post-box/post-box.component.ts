@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostService } from '../../services/post.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { LikeService } from '../../services/like.service';
 
 @Component({
   selector: 'app-post-box',
@@ -8,17 +10,21 @@ import { PostService } from '../../services/post.service';
   styleUrls: ['./post-box.component.scss'],
 })
 export class PostBoxComponent implements OnInit {
+  likeForm : FormGroup;
   allPost: any = [];
   type: String = 'Posts';
   post: any;
-  like: any = 0;
-  value: any;
-  imgLoop: Number[] = [1, 2, 4, 5, 7, 6, 3];
-  @Output() likeSend = new EventEmitter();
+  liked:any;
+  value:String = '';
+  like:any= 0;
+   @Output() likeSend = new EventEmitter();
   @Output() likedPostIdSend = new EventEmitter();
   likedPost: any = [];
 
-  constructor(private _post: PostService, private _router: Router) {
+  constructor(private _post: PostService, private _router: Router, private _fb : FormBuilder, private _like : LikeService) {
+    this.likeForm = this._fb.group({
+      reacted : this.value
+    })
     this._post.getPost().subscribe((result) => {
       this.allPost = result;
     });
@@ -27,7 +33,7 @@ export class PostBoxComponent implements OnInit {
     this.post = obj;
   }
   confDelete(btn: any) {
-    this._post.deletePost(this.post._id).subscribe((result) => {
+    this._post.deletePost(this.post).subscribe((result) => {
       if (result.sucess == true) {
         btn.click();
       }
@@ -38,7 +44,7 @@ export class PostBoxComponent implements OnInit {
   }
 
   edit(obj: any) {
-    this._router.navigate(['/home/edit/' + obj._id]);
+    this._router.navigate(['/home/edit/' + obj]);
   }
 
   calculateDiff(dataDate: any) {}
@@ -67,20 +73,54 @@ export class PostBoxComponent implements OnInit {
       key = 'sec ago';
       return diffSec + key;
     }
+  
   }
 
-  reacted(obj: any) {
+  reacted(obj : any) {
+    this.likedPostIdSend.emit(this.likedPost);
+  }
+
+  value1(obj : any) {
     this.likedPost = obj;
-    this.like++;
-    if (this.like > 1) {
-      return;
-    }
-    console.log(this.like);
+    this.value = 'thumbsup'
+        // this.likeSend.emit(this.value);
+  }
+  value2(obj : any) {
+    this.value = 'laugh';
+    this.likedPost = obj;
+        // this.likeSend.emit(this.value);
+  }
+  value3(obj : any) {
+    this.value = 'loving';
+    this.likedPost = obj;
+        // this.likeSend.emit(this.value);
+  }
+  value4(obj : any) {
+    this.value = 'heart';
+    this.likedPost = obj;
+        // this.likeSend.emit(this.value);
+
+  }
+  value5(obj : any) {
+    this.value = 'shocked';
+    this.likedPost = obj;
+        // this.likeSend.emit(this.value);
+  }
+  value6(obj : any) {
+    this.value = 'crying';
+    this.likedPost = obj;
+        // this.likeSend.emit(this.value);
+  }
+  value7(obj : any) {
+    this.value = 'angry';
+    this.likedPost = obj;
+        // this.likeSend.emit(this.value);
   }
 
-  likeSending() {
-    this.likeSend.emit(this.like);
-    this.likedPostIdSend.emit(this.likedPost._id);
+  likeSubmited() {
+this._like.addLike(this.likeForm.value).subscribe(result=> {
+  this._router.navigate(["/home"]);
+})
   }
 
   ngOnInit(): void {}
