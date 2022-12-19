@@ -12,6 +12,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { PostBoxComponent } from './shared/post-box/post-box.component';
 import { DelmodalComponent } from './shared/delmodal/delmodal.component';
 import { EditPostComponent } from './pages/edit-post/edit-post.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { EditPostComponent } from './pages/edit-post/edit-post.component';
     UserRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgxSpinnerModule,
   ],
 })
 export class UserModule {}

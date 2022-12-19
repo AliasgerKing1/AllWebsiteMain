@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "ngx-infinite-scroll": "^15.0.0",
+    "ngx-spinner": "^14.0.0"
+  }
+}

@@ -7,15 +7,16 @@
       <div class="media-body">
         <div class="user-title">
           <a href="user-timeline.html">Aahat Akter</a>
-          <i class="icofont-check"></i> <span style="cursor: pointer;">posted in the group</span>&nbsp;
+          <i class="icofont-check"></i>
+          <span style="cursor: pointer">posted in the group</span>&nbsp;
           <a href="#">Tourist Guide</a>
         </div>
         <ul class="entry-meta">
           <li class="meta-privacy"><i class="icofont-world"></i> Public</li>
-          <li class="meta-time">{{ calculateDiff(p)}} {{HourTime(p)}}</li>
+          <li class="meta-time">{{ calculateDiff(p) }} {{ HourTime(p) }}</li>
         </ul>
       </div>
-      </div>
+    </div>
     <div class="dropdown">
       <button
         class="dropdown-toggle"
@@ -27,7 +28,9 @@
       </button>
       <div class="dropdown-menu dropdown-menu-right">
         <a class="dropdown-item" routerLink="">Close</a>
-        <a class="dropdown-item" style="cursor: pointer;" (click)="edit(p)">Edit</a>
+        <a class="dropdown-item" style="cursor: pointer" (click)="edit(p)"
+          >Edit</a
+        >
         <button
           class="dropdown-item"
           data-toggle="modal"
@@ -66,43 +69,63 @@
   <div class="post-footer">
     <ul>
       <li class="post-react">
-        <a href="#"><i class="icofont-thumbs-up"></i>React!</a>
+        <a style="cursor: pointer"><i class="icofont-thumbs-up"></i>React!</a>
         <ul class="react-list">
-          <li>
-            <a href="#"
-              ><img src="./assets/media/figure/reaction_1.png" alt="Like"
+          <li *ngFor="let il of imgLoop">
+            <a style="cursor: pointer" (click)="reacted(p)"
+              ><img
+                src="./assets/media/figure/reaction_{{ il }}.png"
+                alt="Like"
             /></a>
           </li>
-          <li>
-            <a href="#"
-              ><img src="./assets/media/figure/reaction_2.png" alt="Like"
-            /></a>
+          <!-- <li>
+            <a style="cursor: pointer" (click)="reacted()"
+              ><img
+                src="./assets/media/figure/reaction_2.png"
+                alt="Like"
+              /><span>2</span></a
+            >
           </li>
           <li>
-            <a href="#"
-              ><img src="./assets/media/figure/reaction_4.png" alt="Like"
-            /></a>
+            <a style="cursor: pointer" (click)="reacted()"
+              ><img
+                src="./assets/media/figure/reaction_4.png"
+                alt="Like"
+              /><span>3</span></a
+            >
           </li>
           <li>
-            <a href="#"
-              ><img src="./assets/media/figure/reaction_2.png" alt="Like"
-            /></a>
+            <a style="cursor: pointer" (click)="reacted()"
+              ><img
+                src="./assets/media/figure/reaction_2.png"
+                alt="Like"
+              /><span>4</span></a
+            >
           </li>
           <li>
-            <a href="#"
-              ><img src="./assets/media/figure/reaction_7.png" alt="Like"
-            /></a>
+            <a style="cursor: pointer" (click)="reacted()"
+              ><img
+                src="./assets/media/figure/reaction_7.png"
+                alt="Like"
+              /><span>5</span></a
+            >
           </li>
           <li>
-            <a href="#"
-              ><img src="./assets/media/figure/reaction_6.png" alt="Like"
-            /></a>
+            <a style="cursor: pointer" (click)="reacted()"
+              ><img
+                src="./assets/media/figure/reaction_6.png"
+                alt="Like"
+              /><span>6</span></a
+            >
           </li>
           <li>
-            <a href="#"
-              ><img src="./assets/media/figure/reaction_5.png" alt="Like"
-            /></a>
-          </li>
+            <a style="cursor: pointer" (click)="reacted()"
+              ><img
+                src="./assets/media/figure/reaction_5.png"
+                alt="Like"
+              /><span>7</span></a
+            >
+          </li> -->
         </ul>
       </li>
       <li>
@@ -143,23 +166,50 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="delModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div
+  class="modal fade"
+  id="delModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Delete {{type}}</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-              </div>
-          <div class="modal-body">
-            <p> are you sure you want to delete this <b>{{type}}</b></p>
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-primary" #closeBtn data-dismiss="modal">no</button>
-              <button type="button" class="btn btn-danger" (click)="confDelete(closeBtn)" (click)="reload()">Yes</button>
-              </div>
-              </div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete {{ type }}</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          are you sure you want to delete this <b>{{ type }}</b>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          #closeBtn
+          data-dismiss="modal"
+        >
+          no
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="confDelete(closeBtn)"
+          (click)="reload()"
+        >
+          Yes
+        </button>
+      </div>
+    </div>
   </div>
 </div>
 

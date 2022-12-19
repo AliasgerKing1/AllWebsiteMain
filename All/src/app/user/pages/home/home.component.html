@@ -19,9 +19,7 @@
         <div class="navbar">
           <div class="nav-item d-none d-sm-block">
             <div class="header-logo">
-              <a href="/"
-                ><img src="./assets/media/logo.png" alt="Cirkle"
-              /></a>
+              <a href="/"><img src="./assets/media/logo.png" alt="Cirkle" /></a>
             </div>
           </div>
           <div class="nav-item nav-top-menu">
@@ -962,7 +960,7 @@
                 </div>
               </div>
             </div>
-            <app-post-box></app-post-box>
+            <app-post-box (likeSend)="likeRecieve($event)"></app-post-box>
             <!-- <div class="block-box post-view">
               <div class="post-header">
                 <div class="media">
