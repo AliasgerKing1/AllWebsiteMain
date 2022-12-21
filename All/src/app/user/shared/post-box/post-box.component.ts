@@ -10,21 +10,26 @@ import { LikeService } from '../../services/like.service';
   styleUrls: ['./post-box.component.scss'],
 })
 export class PostBoxComponent implements OnInit {
-  likeForm : FormGroup;
+  likeForm: FormGroup;
   allPost: any = [];
   type: String = 'Posts';
   post: any;
-  liked:any;
-  value:String = '';
-  like:any= 0;
-   @Output() likeSend = new EventEmitter();
+  liked: any;
+  value: String = '';
+  like: any = 0;
+  @Output() likeSend = new EventEmitter();
   @Output() likedPostIdSend = new EventEmitter();
   likedPost: any = [];
 
-  constructor(private _post: PostService, private _router: Router, private _fb : FormBuilder, private _like : LikeService) {
+  constructor(
+    private _post: PostService,
+    private _router: Router,
+    private _fb: FormBuilder,
+    private _like: LikeService
+  ) {
     this.likeForm = this._fb.group({
-      reacted : this.value
-    })
+      reacted: this.value,
+    });
     this._post.getPost().subscribe((result) => {
       this.allPost = result;
     });
@@ -73,54 +78,52 @@ export class PostBoxComponent implements OnInit {
       key = 'sec ago';
       return diffSec + key;
     }
-  
   }
 
-  reacted(obj : any) {
+  reacted(obj: any) {
     this.likedPostIdSend.emit(this.likedPost);
   }
 
-  value1(obj : any) {
+  value1(obj: any) {
     this.likedPost = obj;
-    this.value = 'thumbsup'
-        // this.likeSend.emit(this.value);
+    this.value = 'thumbsup';
+    // this.likeSend.emit(this.value);
   }
-  value2(obj : any) {
+  value2(obj: any) {
     this.value = 'laugh';
     this.likedPost = obj;
-        // this.likeSend.emit(this.value);
+    // this.likeSend.emit(this.value);
   }
-  value3(obj : any) {
+  value3(obj: any) {
     this.value = 'loving';
     this.likedPost = obj;
-        // this.likeSend.emit(this.value);
+    // this.likeSend.emit(this.value);
   }
-  value4(obj : any) {
+  value4(obj: any) {
     this.value = 'heart';
     this.likedPost = obj;
-        // this.likeSend.emit(this.value);
-
+    // this.likeSend.emit(this.value);
   }
-  value5(obj : any) {
+  value5(obj: any) {
     this.value = 'shocked';
     this.likedPost = obj;
-        // this.likeSend.emit(this.value);
+    // this.likeSend.emit(this.value);
   }
-  value6(obj : any) {
+  value6(obj: any) {
     this.value = 'crying';
     this.likedPost = obj;
-        // this.likeSend.emit(this.value);
+    // this.likeSend.emit(this.value);
   }
-  value7(obj : any) {
+  value7(obj: any) {
     this.value = 'angry';
     this.likedPost = obj;
-        // this.likeSend.emit(this.value);
+    // this.likeSend.emit(this.value);
   }
 
   likeSubmited() {
-this._like.addLike(this.likeForm.value).subscribe(result=> {
-  this._router.navigate(["/home"]);
-})
+    this._like.addLike(this.likeForm.value).subscribe((result) => {
+      this._router.navigate(['/home']);
+    });
   }
 
   ngOnInit(): void {}

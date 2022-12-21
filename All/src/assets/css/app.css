@@ -2368,6 +2368,8 @@ nav.template-main-menu > ul > li:hover ul.mega-menu {
 
 .fixed-header .header-control .dropdown .dropdown-menu .item-body .media .item-img img {
     border-radius: 50%;
+    width: 60px !important;
+    height: 60px !important;
 }
 
 .fixed-header .header-control .dropdown .dropdown-menu .item-body .media .media-body {

@@ -1,5 +1,6 @@
 const routes = require("express").Router();
 const Image = require("../../models/social_media/ProfileImage");
+const jwt = require("jsonwebtoken");
 const str = require("random-string");
 const path = require("path");
 
@@ -19,8 +20,16 @@ routes.post("/", (req, res)=> {
     })
 })
 routes.get("/", (req, res)=> {
+    if(req.headers.authorization) {
+        let token = JSON.parse(req.headers.authorization);
+        let obj = jwt.decode(token, "Aliasger web");
+    }
    Image.find({}, (error, result)=> {
-        res.send(result);
+        let new_result = result.map((x)=> {
+            x.image = "http://localhost:3000/profile_images/" + x.image;
+            return x;
+        })
+        res.send(new_result[0]);
     })
 })
 routes.get("/:id", (req, res)=> {

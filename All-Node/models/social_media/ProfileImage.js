@@ -2,7 +2,7 @@ require("../../config/database");
 const mongoose = require("mongoose");
 
 const Image = mongoose.Schema({
-    name : String,
+    userToken : String,
     image : String
 })
 

@@ -446,7 +446,11 @@
                     <li><a href="#">Settings</a></li>
                     <li><a href="#">Terms and Conditions</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="login.html">Log Out</a></li>
+                    <li>
+                      <a style="cursor: pointer" (click)="_auth.logout()"
+                        >Log Out</a
+                      >
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -768,54 +772,77 @@
         <div class="banner-user">
           <div class="banner-content">
             <form [formGroup]="uploadForm">
-            <div class="media">
-              <div class="item-img" style="position: relative;">
-                <img src="{{profile[0].image}}" style=" display: block;" alt="User" width="120px" height="120px" />
-                <span class="position-absolute top-0 start-100 translate-middle p-2 rounded-circle">
-                  <span class="visually-hidden"><label><i class="icofont-pencil pencil-upload">
-                        <input type="file" style="display: none;" (change)="selected(submit)" #photo /></i></label></span>
-                </span>
+              <div class="media">
+                <div class="item-img" style="position: relative">
+                  <img
+                    src="{{ profile.image }}"
+                    style="
+                      display: block;
+                      width: 120px !important;
+                      height: 120px !important;
+                    "
+                    alt="User"
+                  />
+                  <span
+                    class="position-absolute top-0 start-100 translate-middle p-2 rounded-circle"
+                  >
+                    <span class="visually-hidden"
+                      ><label
+                        ><i class="icofont-pencil pencil-upload">
+                          <input
+                            type="file"
+                            style="display: none"
+                            (change)="selected(submit)"
+                            #photo /></i></label
+                    ></span>
+                  </span>
+                </div>
+                <input
+                  type="submit"
+                  style="display: none"
+                  #submit
+                  (click)="onSelectFile(photo)"
+                  class="btn btn-primary"
+                />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="media-body">
+                  <h3 class="item-title">{{ user.fname }} {{ user.lname }}</h3>
+                  <div class="item-subtitle">United State of America</div>
+                  <ul class="item-social">
+                    <li>
+                      <a href="#" class="bg-fb"
+                        ><i class="icofont-facebook"></i
+                      ></a>
+                    </li>
+                    <li>
+                      <a href="#" class="bg-twitter"
+                        ><i class="icofont-twitter"></i
+                      ></a>
+                    </li>
+                    <li>
+                      <a href="#" class="bg-dribble"
+                        ><i class="icofont-dribbble"></i
+                      ></a>
+                    </li>
+                    <li>
+                      <a href="#" class="bg-youtube"
+                        ><i class="icofont-brand-youtube"></i
+                      ></a>
+                    </li>
+                    <li>
+                      <a href="#" class="bg-behance"
+                        ><i class="icofont-behance"></i
+                      ></a>
+                    </li>
+                  </ul>
+                  <ul class="user-meta">
+                    <li>Posts: <span>30</span></li>
+                    <li>Comments: <span>12</span></li>
+                    <li>Views: <span>1.2k</span></li>
+                  </ul>
+                </div>
               </div>
-              <input type="submit" style="display: none;" #submit (click)="onSelectFile(photo)" class="btn btn-primary" />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <div class="media-body">
-                <h3 class="item-title">{{ user.fname }} {{ user.lname }}</h3>
-                <div class="item-subtitle">United State of America</div>
-                <ul class="item-social">
-                  <li>
-                    <a href="#" class="bg-fb"
-                      ><i class="icofont-facebook"></i
-                    ></a>
-                  </li>
-                  <li>
-                    <a href="#" class="bg-twitter"
-                      ><i class="icofont-twitter"></i
-                    ></a>
-                  </li>
-                  <li>
-                    <a href="#" class="bg-dribble"
-                      ><i class="icofont-dribbble"></i
-                    ></a>
-                  </li>
-                  <li>
-                    <a href="#" class="bg-youtube"
-                      ><i class="icofont-brand-youtube"></i
-                    ></a>
-                  </li>
-                  <li>
-                    <a href="#" class="bg-behance"
-                      ><i class="icofont-behance"></i
-                    ></a>
-                  </li>
-                </ul>
-                <ul class="user-meta">
-                  <li>Posts: <span>30</span></li>
-                  <li>Comments: <span>12</span></li>
-                  <li>Views: <span>1.2k</span></li>
-                </ul>
-              </div>
-            </div>
-          </form>
+            </form>
           </div>
         </div>
         <div class="block-box user-top-header">
@@ -980,7 +1007,7 @@
                 </li>
                 <li>
                   <label>Phone:</label>
-                  <p>{{user.code}} {{user.contact}}</p>
+                  <p>{{ user.code }} {{ user.contact }}</p>
                 </li>
                 <li>
                   <label>Address:</label>
@@ -1019,10 +1046,10 @@
                   asserty GamePagla! I have a Newbike channel where I stream.
                 </p>
                 <ul class="info-list">
-                  <li><span>Joined:</span>{{user.joined_date}}</li>
+                  <li><span>Joined:</span>{{ user.joined_date }}</li>
                   <li><span>E-mail:</span>{{ user.email }}</li>
                   <li><span>Address:</span>59 Street Neworkcity</li>
-                  <li><span>Phone:</span>{{user.code}} {{user.contact}}</li>
+                  <li><span>Phone:</span>{{ user.code }} {{ user.contact }}</li>
                   <li><span>Country:</span>USA</li>
                   <li><span>Web:</span><a href="#">www.rebeca.com</a></li>
                   <li class="social-share">
