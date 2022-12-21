@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../../services/profile.service';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { BuiltinTypeName } from '@angular/compiler';
 import { FileUploadService } from '../../services/file-upload.service';
 @Component({
   selector: 'app-profile',
@@ -10,8 +9,8 @@ import { FileUploadService } from '../../services/file-upload.service';
 })
 export class ProfileComponent implements OnInit {
   user: any;
-  url: any = './assets/media/banner/user_1.jpg';
   uploadForm: FormGroup;
+  profile:any = [];
   constructor(
     private _profile: ProfileService,
     private _fb: FormBuilder,
@@ -21,18 +20,26 @@ export class ProfileComponent implements OnInit {
       this.user = result;
     });
 
+    this._file.getImage().subscribe(result=> {
+      this.profile = result;
+    })
+
     this.uploadForm = this._fb.group({
-      image: '',
+      dummy: '',
     });
   }
-  onSelectFile(e: any) {
-    if (e.target.files) {
-      let reader = new FileReader();
-      reader.readAsDataURL(e.target.files[0]);
-      reader.onload = (event: any) => {
-        this.url = event.target.result;
-      };
-    }
+  onSelectFile(photo : any) {
+    let image = photo.files[0];
+    let form = new FormData();
+    form.append("data", JSON.stringify(this.uploadForm.value));
+    form.append("image", image);
+
+    this._file.addImage(form).subscribe(result=> {
+      window.location.reload();
+    })
+  }
+  selected(btn : any) {
+    btn.click();
   }
 
   ngOnInit(): void {}
