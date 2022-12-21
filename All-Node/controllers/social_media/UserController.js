@@ -9,7 +9,7 @@ routes.post("/", (req, res)=> {
     User.create(req.body, (error)=> {
         res.send({success : true});
     })
-})
+        })
 routes.post("/loginauth", (req, res)=> {
     let email = req.body.email;
     let password = sha1(req.body.password);

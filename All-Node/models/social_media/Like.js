@@ -1,8 +1,8 @@
-require("../../config/database");
-const mongoose = require("mongoose");
+// require("../../config/database");
+// const mongoose = require("mongoose");
 
-const Post = mongoose.Schema({
-    reacted : String
-})
+// const Like = mongoose.Schema({
+//     reacted : String
+// })
 
-module.exports = mongoose.model("post", Post);
+// module.exports = mongoose.model("like", Like);

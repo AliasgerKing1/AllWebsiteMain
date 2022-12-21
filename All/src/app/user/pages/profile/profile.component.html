@@ -770,13 +770,13 @@
             <form [formGroup]="uploadForm">
             <div class="media">
               <div class="item-img" style="position: relative;">
-                <img [src]="url" style=" display: block;" alt="User" width="120px" height="120px" />
+                <img src="{{profile[0].image}}" style=" display: block;" alt="User" width="120px" height="120px" />
                 <span class="position-absolute top-0 start-100 translate-middle p-2 rounded-circle">
-                  <span class="visually-hidden"><label><i class="icofont-pencil pencil-upload"> <input type="file"
-                          style="display: none;" (change)="onSelectFile($event)" /></i></label></span>
+                  <span class="visually-hidden"><label><i class="icofont-pencil pencil-upload">
+                        <input type="file" style="display: none;" (change)="selected(submit)" #photo /></i></label></span>
                 </span>
               </div>
-              <input type="file" style="display: none;" (change)="onSelectFile($event)" #upload />
+              <input type="submit" style="display: none;" #submit (click)="onSelectFile(photo)" class="btn btn-primary" />
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <div class="media-body">
                 <h3 class="item-title">{{ user.fname }} {{ user.lname }}</h3>
