@@ -1,7 +1,11 @@
-import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import {
+  checkLength,
+  checkNum,
+  checkPass,
+} from 'src/app/helpers/coustom_validations';
 import { UserService } from 'src/app/services/user.service';
 import { AuthService } from '../../services/auth.service';
 import { ContCodeService } from '../../services/cont-code.service';
@@ -19,6 +23,8 @@ export class LoginComponent implements OnInit {
   allCode: any = [];
   joinedDate: any = new Date();
   userJoinedDate: any;
+  strength: any = 0;
+  passPer: any = 0;
   constructor(
     private _fb: FormBuilder,
     private _user: UserService,
@@ -36,20 +42,34 @@ export class LoginComponent implements OnInit {
     });
 
     //Signup form
-    this.UserForm = this._fb.group({
-      fname: ['', Validators.required],
-      lname: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-      re_password: ['', Validators.required],
-      contact: ['', Validators.required],
-      gender: ['', Validators.required],
-      day: ['', Validators.required],
-      month: ['', Validators.required],
-      year: ['', Validators.required],
-      code: ['', Validators.required],
-      joined_date: new Date(),
-    });
+    this.UserForm = this._fb.group(
+      {
+        fname: ['', Validators.required],
+        lname: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email]],
+        password: [
+          '',
+          [
+            Validators.required,
+            Validators.pattern(
+              '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-zd$@$!%*?&-].{8,}'
+            ),
+          ],
+        ],
+        re_password: ['', Validators.required],
+        contact: ['', Validators.required],
+        gender: ['', Validators.required],
+        day: ['', Validators.required],
+        month: ['', Validators.required],
+        year: ['', Validators.required],
+        code: ['', Validators.required],
+        terms: ['', Validators.required],
+        joined_date: new Date(),
+      },
+      {
+        validator: [checkPass(), checkNum(), checkLength()],
+      }
+    );
   }
   submit() {
     // this.userJoinedDate = parse(joinedDate.innerHTML);
@@ -106,5 +126,8 @@ export class LoginComponent implements OnInit {
     1987, 1986, 1985, 1984, 1983, 1982, 1981, 1980, 1979, 1978, 1977, 1976,
     1975, 1974, 1973, 1972, 1971, 1970,
   ];
+
+  //Password Strength Bar
+
   ngOnInit(): void {}
 }

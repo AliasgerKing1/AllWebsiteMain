@@ -12,6 +12,7 @@ const User = mongoose.Schema({
   year: String,
   gender: String,
   code: String,
+  terms: String,
   joined_date: String,
 });
 
