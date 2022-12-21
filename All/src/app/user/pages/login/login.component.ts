@@ -31,6 +31,9 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     });
+    this._code.getCountryCode().subscribe((result) => {
+      this.allCode = result;
+    });
 
     //Signup form
     this.UserForm = this._fb.group({
@@ -46,10 +49,6 @@ export class LoginComponent implements OnInit {
       year: ['', Validators.required],
       code: ['', Validators.required],
       joined_date: new Date(),
-    });
-
-    this._code.getCountryCode().subscribe((result) => {
-      this.allCode = result;
     });
   }
   submit() {
