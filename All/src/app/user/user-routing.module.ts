@@ -6,6 +6,8 @@ import { EditPostComponent } from './pages/edit-post/edit-post.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { SingleUserComponent } from './pages/single-user/single-user.component';
+import { UserListComponent } from './pages/user-list/user-list.component';
 import { UserComponent } from './user.component';
 
 const routes: Routes = [
@@ -31,6 +33,16 @@ const routes: Routes = [
       {
         path: 'home/edit/:id',
         component: HomeComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'user/list',
+        component: UserListComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'user/single/profile/:id',
+        component: SingleUserComponent,
         canActivate: [AuthGuard],
       },
     ],

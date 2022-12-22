@@ -28,4 +28,16 @@ routes.post("/loginauth", (req, res)=> {
     })
 })
 
+routes.get("/", (req,res)=> {
+    User.find({}, (error,result)=> {
+        res.send(result);
+    })
+})
+
+routes.get("/:id", (req,res)=> {
+    let id = req.params.id;
+    User.find({_id : id}, (error,result)=> {
+        res.send(result[0]);
+    })
+})
 module.exports = routes;

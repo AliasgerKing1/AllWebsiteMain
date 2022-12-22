@@ -13,6 +13,8 @@ import { PostBoxComponent } from './shared/post-box/post-box.component';
 import { DelmodalComponent } from './shared/delmodal/delmodal.component';
 import { EditPostComponent } from './pages/edit-post/edit-post.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { UserListComponent } from './pages/user-list/user-list.component';
+import { SingleUserComponent } from './pages/single-user/single-user.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     PostBoxComponent,
     DelmodalComponent,
     EditPostComponent,
+    UserListComponent,
+    SingleUserComponent,
   ],
   imports: [
     CommonModule,
