@@ -15,6 +15,8 @@ import { EditPostComponent } from './pages/edit-post/edit-post.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { UserListComponent } from './pages/user-list/user-list.component';
 import { SingleUserComponent } from './pages/single-user/single-user.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { SingleUserComponent } from './pages/single-user/single-user.component';
     EditPostComponent,
     UserListComponent,
     SingleUserComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,

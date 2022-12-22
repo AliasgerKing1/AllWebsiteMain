@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import { FriendRequestService } from '../../services/friend-request.service';
 import { ProfileService } from '../../services/profile.service';
 
 @Component({
@@ -15,7 +16,8 @@ export class SingleUserComponent implements OnInit {
   constructor(
     private _user: UserService,
     private actroute: ActivatedRoute,
-    private _profile: ProfileService
+    private _profile: ProfileService,
+    private _fr: FriendRequestService
   ) {
     this.id = this.actroute.snapshot.paramMap.get('id');
     this._user.GetUserById(this.id).subscribe((result) => {
@@ -29,7 +31,9 @@ export class SingleUserComponent implements OnInit {
     });
   }
 
-  friend_request() {}
+  friend_request() {
+    this._fr.senderId().subscribe((result: any) => {});
+  }
 
   ngOnInit(): void {}
 }
