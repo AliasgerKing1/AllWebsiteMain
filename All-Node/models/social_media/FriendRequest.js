@@ -2,7 +2,7 @@ require("../../config/database");
 const mongoose = require("mongoose");
 
 const Fr = mongoose.Schema({
-    senderId : String,
+    senderId : {},
     reciverId : String,
     
 })

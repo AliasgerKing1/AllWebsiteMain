@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="bg-link-water">
   <!--[if lte IE 9]>
     <p class="browserupgrade">
@@ -443,7 +444,7 @@
                     <li><a href="#">Settings</a></li>
                     <li><a href="#">Terms and Conditions</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="login.html">Log Out</a></li>
+                    <li><a (click)="_auth.logout()">Log Out</a></li>
                   </ul>
                 </div>
               </div>
@@ -799,15 +800,43 @@
                   </li>
                 </ul>
                 <br />
-                <div>
-                  <button
-                    type="button"
-                    class="btn btn-info btn-sm"
-                    (click)="friend_request()"
-                  >
-                    send-request
-                  </button>
-                </div>
+                <ng-template [ngIf]="request" [ngIfElse]="not_send">
+                  <div>
+                    <div class="dropdown">
+                      <button
+                        type="button"
+                        class="btn btn-danger btn-sm"
+                        data-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        requested
+                      </button>
+                      <div class="dropdown-menu">
+                        <a
+                          class="dropdown-item"
+                          (click)="unfollow()"
+                          style="cursor: pointer"
+                          >Unfollow</a
+                        >
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item">cancel</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Block</a>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>
+                <ng-template #not_send>
+                  <div>
+                    <button
+                      type="button"
+                      class="btn btn-info btn-sm"
+                      (click)="friend_request()"
+                    >
+                      follow
+                    </button>
+                  </div>
+                </ng-template>
                 <ul class="user-meta">
                   <li>Posts: <span>30</span></li>
                   <li>Comments: <span>12</span></li>
@@ -2198,7 +2227,9 @@
                   where I stream.
                 </p>
                 <ul class="info-list">
-                  <li><span>Joined:</span>{{ user.joined_date }}</li>
+                  <li>
+                    <span>Joined:</span>{{ user.joined_date | date : "d-M-y" }}
+                  </li>
                   <li><span>E-mail:</span>{{ user.email }}</li>
                   <li><span>Address:</span>59 Street Neworkcity</li>
                   <li><span>Phone:</span>{{ user.code }} {{ user.contact }}</li>
@@ -2798,3 +2829,4 @@
     </div>
   </div>
 </div>
+<app-footer></app-footer>

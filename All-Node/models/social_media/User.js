@@ -14,6 +14,7 @@ const User = mongoose.Schema({
   code: String,
   terms: String,
   joined_date: String,
+  senderId: String,
 });
 
 module.exports = mongoose.model("user", User);

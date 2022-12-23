@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import { AuthService } from '../../services/auth.service';
 import { FriendRequestService } from '../../services/friend-request.service';
 import { ProfileService } from '../../services/profile.service';
 
@@ -13,11 +14,13 @@ export class SingleUserComponent implements OnInit {
   id: any;
   user: any;
   User: any = [];
+  request: boolean = false;
   constructor(
     private _user: UserService,
     private actroute: ActivatedRoute,
     private _profile: ProfileService,
-    private _fr: FriendRequestService
+    private _fr: FriendRequestService,
+    public _auth: AuthService
   ) {
     this.id = this.actroute.snapshot.paramMap.get('id');
     this._user.GetUserById(this.id).subscribe((result) => {
@@ -32,8 +35,19 @@ export class SingleUserComponent implements OnInit {
   }
 
   friend_request() {
-    this._fr.senderId().subscribe((result: any) => {});
+    this._fr.bothId(this.User).subscribe((result) => {
+      if (result.success == true) {
+        this.request = true;
+      }
+    });
   }
 
+  unfollow() {
+    this._fr.deleteRequest(this.User._id).subscribe((result) => {
+      if (result.successdelete == true) {
+        this.request = false;
+      }
+    });
+  }
   ngOnInit(): void {}
 }

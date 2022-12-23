@@ -8,12 +8,12 @@ export class FriendRequestService {
   constructor(private _http: HttpClient) {}
   apiURL = 'http://localhost:3000/api/friend/request/';
 
-  senderId() {
+  bothId(obj: any) {
     let token = localStorage.getItem('token');
     let head = new HttpHeaders().set('Authorization', JSON.stringify(token));
-    return this._http.get<any>(this.apiURL, { headers: head });
+    return this._http.post<any>(this.apiURL, obj, { headers: head });
   }
-  reciverId(obj: any) {
-    return this._http.post<any>(this.apiURL, obj);
+  deleteRequest(id: any) {
+    return this._http.delete<any>(this.apiURL + id);
   }
 }

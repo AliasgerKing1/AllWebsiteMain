@@ -65,6 +65,7 @@ export class LoginComponent implements OnInit {
         code: ['', Validators.required],
         terms: ['', Validators.required],
         joined_date: new Date(),
+        senderId: '',
       },
       {
         validator: [checkPass(), checkNum(), checkLength()],
