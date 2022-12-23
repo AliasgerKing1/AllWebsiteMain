@@ -14,7 +14,7 @@ export class SingleUserComponent implements OnInit {
   id: any;
   user: any;
   User: any = [];
-  request: boolean = false;
+  request: Number = 0;
   constructor(
     private _user: UserService,
     private actroute: ActivatedRoute,
@@ -33,11 +33,13 @@ export class SingleUserComponent implements OnInit {
       });
     });
   }
-
   friend_request() {
+    this._fr.getRequest(this.User).subscribe((result) => {
+      console.log(result);
+    });
     this._fr.bothId(this.User).subscribe((result) => {
       if (result.success == true) {
-        this.request = true;
+        this.request = 1;
       }
     });
   }
@@ -45,7 +47,7 @@ export class SingleUserComponent implements OnInit {
   unfollow() {
     this._fr.deleteRequest(this.User._id).subscribe((result) => {
       if (result.successdelete == true) {
-        this.request = false;
+        this.request = 0;
       }
     });
   }
