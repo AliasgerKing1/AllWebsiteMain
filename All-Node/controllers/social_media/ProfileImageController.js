@@ -15,7 +15,8 @@ routes.post("/", (req, res)=> {
     body.image = new_name;
     image.mv(path.resolve() + "/assets/profile_images/" + new_name, (error)=> {
         Image.create(body, (error)=> {
-            res.send({success : true});
+            let obj =  {name : "http://localhost:3000/profile_images/" + new_name};
+            res.send(obj);
         })
     })
 })

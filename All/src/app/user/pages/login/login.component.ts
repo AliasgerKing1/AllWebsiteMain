@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
   userJoinedDate: any;
   strength: any = 0;
   passPer: any = 0;
+  username: any;
   constructor(
     private _fb: FormBuilder,
     private _user: UserService,
@@ -131,4 +132,8 @@ export class LoginComponent implements OnInit {
   //Password Strength Bar
 
   ngOnInit(): void {}
+  checkUserName() {
+    this.username = this.UserForm.controls['email'].value;
+    console.log(this.username);
+  }
 }

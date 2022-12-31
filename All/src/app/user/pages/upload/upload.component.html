@@ -1,0 +1,99 @@
+<app-header></app-header>
+
+<br />
+<br />
+<div class="condtainer my-5">
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="card">
+        <div class="card-header">
+          <h4>Upload Image</h4>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="imageForm">
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input
+                type="text"
+                formControlName="title"
+                id="title"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid': checkForm && imageForm.controls['title'].errors
+                }"
+              />
+              <small
+                class="text-danger"
+                *ngIf="checkForm && imageForm.controls['title'].errors"
+                >Insert Image title</small
+              >
+            </div>
+            <div class="form-group">
+              <label for="file">Upload Image</label>
+              <input
+                type="file"
+                #img
+                formControlName="image"
+                id="file"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid': checkForm && imageForm.controls['image'].errors
+                }"
+              />
+            </div>
+            <div
+              class="text-danger"
+              *ngIf="checkForm && imageForm.controls['image'].errors"
+            >
+              <small *ngIf="imageForm.controls['image'].errors['required']"
+                >Upload your Image</small
+              >
+              <small *ngIf="imageForm.controls['image'].errors['typeErr']"
+                >invalid type</small
+              >
+              <small *ngIf="imageForm.controls['image'].errors['sizeErr']"
+                >Image size must be less than 4mb</small
+              >
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+          <input
+            type="submit"
+            value="Upload"
+            (click)="submit(img)"
+            class="btn btn-info"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<div class="container">
+  <div class="row my-4">
+    <div class="col-md-3" *ngFor="let i of allImages">
+      <div class="card">
+        <div class="card-header">
+          <h4>Images</h4>
+        </div>
+        <div class="card-body">
+          <img src="{{ i.image }}" style="height: 200px" alt="chart" />
+          <h5>{{ i.title }}</h5>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi
+            a voluptate et atque quod cum dignissimos quae deleniti?
+            Reprehenderit magni voluptas maiores quidem ullam? Inventore culpa
+            voluptatem laudantium perspiciatis necessitatibus.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<app-footer></app-footer>

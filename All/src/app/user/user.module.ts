@@ -17,6 +17,11 @@ import { UserListComponent } from './pages/user-list/user-list.component';
 import { SingleUserComponent } from './pages/single-user/single-user.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { CityListComponent } from './pages/city-list/city-list.component';
+import { UploadComponent } from './pages/upload/upload.component';
+import { ListComponent } from './pages/list/list.component';
+import { ChangePasswordComponent } from './pages/change-password/change-password.component';
+import { ForgetPasswordComponent } from './pages/forget-password/forget-password.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +37,11 @@ import { FooterComponent } from './shared/footer/footer.component';
     SingleUserComponent,
     HeaderComponent,
     FooterComponent,
+    CityListComponent,
+    UploadComponent,
+    ListComponent,
+    ChangePasswordComponent,
+    ForgetPasswordComponent,
   ],
   imports: [
     CommonModule,

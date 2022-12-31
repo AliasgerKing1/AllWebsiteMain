@@ -3,6 +3,7 @@ import { ProfileService } from '../../services/profile.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { FileUploadService } from '../../services/file-upload.service';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -16,7 +17,8 @@ export class ProfileComponent implements OnInit {
     private _profile: ProfileService,
     private _fb: FormBuilder,
     private _file: FileUploadService,
-    public _auth: AuthService
+    public _auth: AuthService,
+    private _router: Router
   ) {
     this._profile.getUserProfile().subscribe((result: any) => {
       this.user = result;
@@ -33,15 +35,28 @@ export class ProfileComponent implements OnInit {
   onSelectFile(photo: any) {
     let image = photo.files[0];
     let form = new FormData();
-    form.append('data', JSON.stringify(this.uploadForm.value));
-    form.append('image', image);
+    if (
+      image.type == 'image/jpeg' ||
+      image.type == 'image/jpg' ||
+      image.type == 'image/png' ||
+      image.type == 'image/svg'
+    ) {
+      form.append('data', JSON.stringify(this.uploadForm.value));
+      form.append('image', image);
 
-    this._file.addImage(form).subscribe((result) => {
-      window.location.reload();
-    });
+      this._file.addImage(form).subscribe((result) => {
+        this.profile.push(result.name);
+      });
+    } else {
+      this.uploadForm.controls['image'].setErrors({ yypeErr: true });
+    }
   }
   selected(btn: any) {
     btn.click();
+  }
+
+  changePass() {
+    this._router.navigate(['/change/password']);
   }
 
   ngOnInit(): void {}

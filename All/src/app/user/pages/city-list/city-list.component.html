@@ -1,0 +1,42 @@
+<app-header></app-header>
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div class="pagination my-4">
+  <li class="page-item" [ngClass]="{ disabled: page == 1 }">
+    <button class="page-link" (click)="paginate(page - 1)">Prev</button>
+  </li>
+  <li
+    class="page-item"
+    [ngClass]="{ active: page == n + 1 }"
+    *ngFor="let i of [].constructor(totalPages); let n = index"
+  >
+    <button class="page-link" (click)="paginate(n + 1)">{{ n + 1 }}</button>
+  </li>
+  <li class="page-item" [ngClass]="{ disabled: page == totalPages }">
+    <button class="page-link" (click)="paginate(page + 1)">Next</button>
+  </li>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <table class="table table-info">
+        <thead>
+          <tr>
+            <th>Sr No.</th>
+            <th>City</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of allCity; let n = index">
+            <td>{{ n + currentPage + 1 }}</td>
+            <td>{{ c.name }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

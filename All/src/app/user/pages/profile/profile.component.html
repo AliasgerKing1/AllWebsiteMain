@@ -806,6 +806,8 @@
                   class="btn btn-primary"
                 />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                <!-- <small *ngIf="uploadForm.controls['image'].errors['typeErr']"></small> -->
                 <div class="media-body">
                   <h3 class="item-title">{{ user.fname }} {{ user.lname }}</h3>
                   <div class="item-subtitle">United State of America</div>
@@ -1062,6 +1064,14 @@
                       <a href="#"><i class="icofont-whatsapp"></i></a>
                       <a href="#"><i class="icofont-instagram"></i></a>
                     </div>
+                  </li>
+                  <li>
+                    <button
+                      (click)="changePass()"
+                      class="btn btn-sm btn-outline-info"
+                    >
+                      Change Passowrd
+                    </button>
                   </li>
                 </ul>
               </div>

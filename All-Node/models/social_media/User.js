@@ -15,6 +15,7 @@ const User = mongoose.Schema({
   terms: String,
   joined_date: String,
   senderId: String,
+  otp : {type : Number, default : null},
 });
 
 module.exports = mongoose.model("user", User);
