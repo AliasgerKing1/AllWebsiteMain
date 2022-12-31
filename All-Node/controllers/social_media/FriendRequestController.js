@@ -11,17 +11,25 @@ routes.post("/", (req, res) => {
     let token = JSON.parse(req.headers.authorization);
     let obj = jwt.decode(token, "Aliasger web");
     req.body.senderId = obj;
-    friendReq.create(req.body, (error)=> {
-      res.send({success:true});
-    })
+    friendReq.create(req.body, (error) => {
+      res.send({ success: true });
+    });
   }
 });
 
-routes.delete("/:id", (req,res)=> {
+routes.delete("/:id", (req, res) => {
   let id = req.params.id;
-  friendReq.deleteMany({_id : id}, (error)=> {
-    res.send({success:true});
-  })
-})
+  friendReq.deleteMany({ _id: id }, (error) => {
+    res.send({ success: true });
+  });
+});
+routes.get("/:id", (req, res) => {
+  let id = req.params.id;
+  friendReq.find({ _id: id }, (error, result) => {
+    console.log(result);
+    return;
+    res.send(result);
+  });
+});
 
 module.exports = routes;

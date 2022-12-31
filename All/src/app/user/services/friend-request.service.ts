@@ -16,4 +16,7 @@ export class FriendRequestService {
   deleteRequest(id: any) {
     return this._http.delete<any>(this.apiURL + id);
   }
+  getRequest(id: any) {
+    return this._http.get<any>(this.apiURL + id);
+  }
 }
